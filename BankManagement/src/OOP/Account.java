@@ -1,12 +1,16 @@
 package OOP;
 
-import java.util.Random;
+import java.util.*;
 
 public class Account {
     private String accountnumber;
     private String userName;
     private String accounttype;
     private double balance;
+
+    private ArrayList<Transaction> TranList = new ArrayList<>();
+
+    private static ArrayList<Account> AccountList = new ArrayList<>();
 
     //private Transaction tran;
 
@@ -15,10 +19,11 @@ public class Account {
         this.userName = userName;
         this.accounttype = accounttype;
         this.balance = balance;
+        AccountList.add(this);
     }
 
 
-    Random random = new Random();
+    //Random random = new Random();
 
     public void setNumber(String number)
     {
@@ -57,12 +62,9 @@ public class Account {
 
         Transaction tran = new Transaction("00"+accountnumber,"Today","Deposit",amount,balance,accountnumber);
 
-//        tran.setId("00"+accountnumber);
-//        tran.setType("Deposit",amount);
-//        tran.setAccountnumber(accountnumber);
-//        tran.setAmount(balance);
-//        tran.setdate("Today");
-        System.out.println(tran.getTransactionDetails());
+        TranList.add(tran);
+
+        //System.out.println(tran.getTransactionDetails());
     }
 
     public boolean withdraw(double amount){
@@ -71,12 +73,8 @@ public class Account {
 
             Transaction tran = new Transaction("00"+accountnumber,"Today","Withdraw",amount,balance,accountnumber);
 
-//            tran.setId();
-//            tran.setType();
-//            tran.setAccountnumber(accountnumber);
-//            tran.setAmount(balance);
-//            tran.setdate();
-            System.out.println(tran.getTransactionDetails());
+            TranList.add(tran);
+            //System.out.println(tran.getTransactionDetails());
 
             return true;
         }
@@ -86,6 +84,24 @@ public class Account {
 
     public String getAccountDetails(){
 
-        return "Account number: "+ this.accountnumber + " Name: " + this.userName + "Type: " + this.accounttype + " Balance: "+ this.balance;
+        return "Account number: "+ this.accountnumber + " Name: " + this.userName + " Type: " + this.accounttype + " Balance: "+ this.balance;
     }
+
+    public ArrayList<Transaction> getTranList(){
+        return TranList;
+    }
+    public static ArrayList<Account> getAccountList(){
+        return AccountList;
+    }
+
+    public static boolean removeAccount(String AccountNum){
+        for(Account u: AccountList){
+            if(u.getNumber().equals(AccountNum)){
+                AccountList.remove(u);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
