@@ -1,7 +1,5 @@
 package OOP;
 
-import javax.swing.*;
-
 public class Transaction {
     private String TransactionId;
     private String date;

@@ -23,8 +23,6 @@ public class Account {
     }
 
 
-    //Random random = new Random();
-
     public void setNumber(String number)
     {
         this.accountnumber = number;
@@ -104,4 +102,30 @@ public class Account {
         return false;
     }
 
+    public static int getNumberOfAccount(){
+        return AccountList.size();
+    }
+
+    public int getNumberOfTran(){
+        return TranList.size();
+    }
+
+    public static void showTransactions(String accountNumber) {
+
+        for (Account acc : AccountList) {
+
+            if (acc.getNumber().equals(accountNumber)) {
+
+                System.out.println("Transaction History:");
+
+                for (Transaction tran : acc.getTranList()) {
+                    System.out.println(tran.getTransactionDetails());
+                }
+
+                return;
+            }
+        }
+
+        System.out.println("Account not found.");
+    }
 }

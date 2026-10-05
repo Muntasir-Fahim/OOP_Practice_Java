@@ -13,21 +13,19 @@ public class Main {
         Account rafiq = new Account("260257","Rafiq","Current",1000);
         rafiq.deposit(300);
 
-        //performing delete operation
-        Account.removeAccount("260257");
-
         Account karim = new Account("260258","Karim","Current",2400);
-        nayem.withdraw(500);
+        karim.withdraw(500);
 
+        if(!Account.removeAccount("260257")) {
+            System.out.println("Not found");   ;
+        }
+
+        //Account list
         for (Account u : Account.getAccountList()){
             System.out.println(u.getAccountDetails());
         }
 
-        System.out.println("\nTransaction of Nayem");
-
-        for (Transaction u : nayem.getTranList()){
-            System.out.println(u.getTransactionDetails());
-        }
+        Account.showTransactions("260255");
 
 
 
