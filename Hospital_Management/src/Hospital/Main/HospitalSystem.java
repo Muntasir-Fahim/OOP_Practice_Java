@@ -94,6 +94,7 @@ public class HospitalSystem {
 
         patient.AssignDoctor(doc);
         doc.assignPatient(patient);
+        PatientList.add(patient);
 
         System.out.println("Success!!! "+name+" Admitted to "+doc.getName()+" in Ward: "+ward.getWardName());
 
