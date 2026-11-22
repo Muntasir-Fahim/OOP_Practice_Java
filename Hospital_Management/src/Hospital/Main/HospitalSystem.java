@@ -18,7 +18,7 @@ public class HospitalSystem {
     public void addDoc(int id,String name, String contact,String specialization, int fee){
         Doctor doc = new Doctor(id,name,contact,specialization,fee);
         DoctorList.add(doc);
-        System.out.println("Successfully added "+name);
+        //System.out.println("Successfully added "+name);
     }
 
     public void addNurse(int id,String name, String contact,String shift){
@@ -29,7 +29,7 @@ public class HospitalSystem {
     public void addBuilding(int id,String buildingName){
         Building bld = new Building(id,buildingName);
         BuildingList.add(bld);
-        System.out.println("Added Building "+buildingName);
+        //System.out.println("Added Building "+buildingName);
     }
 
     public void addWard(int id,String name,int blngId){
