@@ -21,7 +21,6 @@ public class FirstUI extends javax.swing.JFrame {
     private JButton addNurseButton;
     private JButton admitPatientButton;
     private JButton assignDoctorButton;
-    private JTextArea textArea1;
 
     public FirstUI() {
 //        testpane = new JPanel();
